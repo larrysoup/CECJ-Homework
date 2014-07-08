@@ -1,28 +1,28 @@
 /*
- * °j°é±Ô­z½m²ß
- * ¦L¥X¶i¶¥¤E¤E­¼ªkªí¡C
+ * è¿´åœˆæ•˜è¿°ç·´ç¿’
+ * å°å‡ºé€²éšä¹ä¹ä¹˜æ³•è¡¨ã€‚
  * @author Mark
  */
 public class NineNine2 {
 	public static void main(String[] args) {
-		System.out.print("    |  ");		// ±Nªí³æ½u±ø¤À¶}¦L¥X¡C
+		System.out.print("    |  ");		// å°‡è¡¨å–®ç·šæ¢åˆ†é–‹å°å‡ºã€‚
 		for(int i = 1; i <= 9; i++) {
-			System.out.print("\t" + i);		// ¦L¥Xªí³æ¤¤ªº­¼¼Æ¶µ ¡A¨Ã§Q¥Îtab¹ï»ô¡C
+			System.out.print("\t" + i);		// å°å‡ºè¡¨å–®ä¸­çš„ä¹˜æ•¸é … ï¼Œä¸¦åˆ©ç”¨tabå°é½Šã€‚
 		}
 		System.out.print("\n");
 		for(int i = 0; i <= 10; i++) {
-			System.out.print("-------");	// ªí³æ½u±ø(¤À¹j½u)¡C
+			System.out.print("-------");	// è¡¨å–®ç·šæ¢(åˆ†éš”ç·š)ã€‚
 		}
 		System.out.print("\n");
 		
 		for(int j = 9; j >= 1; j--) {
-			/* ±N³Q­¼¼Æ¶µ»P­¼¿n¤À¶}¦L¥X¡C ³Q­¼¼Æ¬°j¡A­¼¼Æ¬°k */
-			System.out.print(j + "   |  ");		// ¦L¥Xªí³æ¤¤ªº³Q­¼¼Æ¶µ¡C
+			/* å°‡è¢«ä¹˜æ•¸é …èˆ‡ä¹˜ç©åˆ†é–‹å°å‡ºã€‚ è¢«ä¹˜æ•¸ç‚ºjï¼Œä¹˜æ•¸ç‚ºk */
+			System.out.print(j + "   |  ");		// å°å‡ºè¡¨å–®ä¸­çš„è¢«ä¹˜æ•¸é …ã€‚
 			for(int k = 1; k <= 9; k++) {
 				if(k<=j) {
-					System.out.print("\t" + (j*k));  // ¦L¥X­¼¿n¡A¨Ã¥Htab¹ï»ô¡C
+					System.out.print("\t" + (j*k));  // å°å‡ºä¹˜ç©ï¼Œä¸¦ä»¥tabå°é½Šã€‚
 				} else {
-					System.out.print( "\t" + " ");	 // ­Y¦³­«½Æ­¼¿n¡A«h¥HªÅ¥Õ¦L¥X¡A¨Ã¥Htab¹ï»ô¡C
+					System.out.print( "\t" + " ");	 // è‹¥æœ‰é‡è¤‡ä¹˜ç©ï¼Œå‰‡ä»¥ç©ºç™½å°å‡ºï¼Œä¸¦ä»¥tabå°é½Šã€‚
 				} // end of if...else
 			}
 			System.out.print("\n");

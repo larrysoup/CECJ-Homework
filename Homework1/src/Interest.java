@@ -1,21 +1,21 @@
 /*
- * °j°é±Ô­z½m²ß
- * ¿úºë¥´¥H10%³æ§Q§ë¸ê100000¤¸¡A°q²Óºâ«h¥H5%½Æ§Q§ë¸ê100000¤¸¡C­pºâ¦h¤Ö¦~«á°q²Óºâªº§ë¸ê¥i¥H¶W¹L¿úºë¥´¡A¨Ã±N¦¹®É¨â¤H¿ú¼Æ¦L¥X¡C
+ * è¿´åœˆæ•˜è¿°ç·´ç¿’
+ * éŒ¢ç²¾æ‰“ä»¥10%å–®åˆ©æŠ•è³‡100000å…ƒï¼Œéƒç´°ç®—å‰‡ä»¥5%è¤‡åˆ©æŠ•è³‡100000å…ƒã€‚è¨ˆç®—å¤šå°‘å¹´å¾Œéƒç´°ç®—çš„æŠ•è³‡å¯ä»¥è¶…ééŒ¢ç²¾æ‰“ï¼Œä¸¦å°‡æ­¤æ™‚å…©äººéŒ¢æ•¸å°å‡ºã€‚
  * @author Mark
  */
 public class Interest {
 	public static void main(String[] args) {
-		double chienPrincipal = 100000, haoPrincipal = 100000, chienSum, haoSum; // Principal ¥»ª÷; Sum Á`©M
-		final double sInterest = 0.1, cInterest = 0.05;		// simple interest ³æ§Q ;  compound interest ½Æ§Q
+		double chienPrincipal = 100000, haoPrincipal = 100000, chienSum, haoSum; // Principal æœ¬é‡‘; Sum ç¸½å’Œ
+		final double sInterest = 0.1, cInterest = 0.05;		// simple interest å–®åˆ© ;  compound interest è¤‡åˆ©
 		int year = 1;
 		
-		while(true) {  /* §Q¥ÎµL½a°j°é¤£Â_­pºâ¤ñ¸ûÁ`ª÷ÃB¡A§PÂ_¦b­Y¤z¦~«á¡A°qªº§ë¸ê·|¶W¹L¿úªº§ë¸ê */
-			chienSum = chienPrincipal * (1 + sInterest * year);			// ³æ§Q§ë¸ê¡C
-			haoSum = haoPrincipal * Math.pow( (1 + cInterest), year);	// ½Æ§Q§ë¸ê¡C Math.pow(©³¼Æ, ¦¸¤è¼Æ)¡A¦¹¤èªk¥i³B²z¦¸¤è¹Bºâ¡C
-		    if(haoSum > chienSum) break;	// ­Y°qªº§ë¸ê¤j©ó¿úªº§ë¸ê¡A«h¸õ¥X°j°é¡C
+		while(true) {  /* åˆ©ç”¨ç„¡çª®è¿´åœˆä¸æ–·è¨ˆç®—æ¯”è¼ƒç¸½é‡‘é¡ï¼Œåˆ¤æ–·åœ¨è‹¥å¹²å¹´å¾Œï¼Œéƒçš„æŠ•è³‡æœƒè¶…ééŒ¢çš„æŠ•è³‡ */
+			chienSum = chienPrincipal * (1 + sInterest * year);			// å–®åˆ©æŠ•è³‡ã€‚
+			haoSum = haoPrincipal * Math.pow( (1 + cInterest), year);	// è¤‡åˆ©æŠ•è³‡ã€‚ Math.pow(åº•æ•¸, æ¬¡æ–¹æ•¸)ï¼Œæ­¤æ–¹æ³•å¯è™•ç†æ¬¡æ–¹é‹ç®—ã€‚
+		    if(haoSum > chienSum) break;	// è‹¥éƒçš„æŠ•è³‡å¤§æ–¼éŒ¢çš„æŠ•è³‡ï¼Œå‰‡è·³å‡ºè¿´åœˆã€‚
 		    year++;
     	} //end of while
-		System.out.println("°q²Óºâªº§ë¸ê¦b " + year + " ¦~«á¥i¥H¶W¹L¿úºë¥´¡C¨â¤HªºÁ`©Ò±o¤À§O¬°:");
-		System.out.printf("¿úºë¥´: %.2f ¤¸\t°q²Óºâ: %.2f ¤¸%n", chienSum, haoSum);			
+		System.out.println("éƒç´°ç®—çš„æŠ•è³‡åœ¨ " + year + " å¹´å¾Œå¯ä»¥è¶…ééŒ¢ç²¾æ‰“ã€‚å…©äººçš„ç¸½æ‰€å¾—åˆ†åˆ¥ç‚º:");
+		System.out.printf("éŒ¢ç²¾æ‰“: %.2f å…ƒ\téƒç´°ç®—: %.2f å…ƒ%n", chienSum, haoSum);			
 	} // end of main()
 } // end of class Interest

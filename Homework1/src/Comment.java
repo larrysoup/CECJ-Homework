@@ -1,55 +1,55 @@
 /*
- * ¿ï¾Ü©Ê±Ô­z½m²ß
- * ¬Y¦Ñ®vµ¹¾Ç¥Íµû»y¡A¤À¼Æ¤À¬°80¤À¥H¤W(§t)¡B60¤À(§t)¦Ü80¤À©M60¤À¥H¤U¤TºØ¡A¾Ş©Ê¤À¬°¡¨¥Ò¡¨¡B¡¨¤A¡¨¡B¡¨¤ş¡¨¤TºØ¡A¨Ì¾Ú¤À¼Æ»P¾Ş©Ê¦@²Õ¦¨¤EºØ²Õ¦Xµ¹µû»y¡C(µû»y¦Û­q)
+ * é¸æ“‡æ€§æ•˜è¿°ç·´ç¿’
+ * æŸè€å¸«çµ¦å­¸ç”Ÿè©•èªï¼Œåˆ†æ•¸åˆ†ç‚º80åˆ†ä»¥ä¸Š(å«)ã€60åˆ†(å«)è‡³80åˆ†å’Œ60åˆ†ä»¥ä¸‹ä¸‰ç¨®ï¼Œæ“æ€§åˆ†ç‚ºâ€ç”²â€ã€â€ä¹™â€ã€â€ä¸™â€ä¸‰ç¨®ï¼Œä¾æ“šåˆ†æ•¸èˆ‡æ“æ€§å…±çµ„æˆä¹ç¨®çµ„åˆçµ¦è©•èªã€‚(è©•èªè‡ªè¨‚)
  * @author Mark
  */
 public class Comment {
 	public static void main(String[] args) {
-		char conduct;	// ¾Ş¦æ¦¨ÁZ
-		int grade;		// ¾Ç·~¤À¼Æ
+		char conduct;	// æ“è¡Œæˆç¸¾
+		int grade;		// å­¸æ¥­åˆ†æ•¸
 		
 		for(int i = 1; i <= 10; i++) {
-			/* ÀH¾÷¶Ã¼Æ¨ú¾Ç·~¤À¼Æ©M¾Ş¦æ¦¨ÁZ */
-			grade = (int) (Math.random() * 80 + 20); // ¶Ã¼Æ¨ú 20~100
+			/* éš¨æ©Ÿäº‚æ•¸å–å­¸æ¥­åˆ†æ•¸å’Œæ“è¡Œæˆç¸¾ */
+			grade = (int) (Math.random() * 80 + 20); // äº‚æ•¸å– 20~100
 			if(grade < 90) {
 				if(grade >= 70) {
-					conduct = '¤A';
+					conduct = 'ä¹™';
 				} else {
-					conduct = '¤ş';
+					conduct = 'ä¸™';
 				}
 			} else {
-				conduct = '¥Ò';
+				conduct = 'ç”²';
 			}
 			
-			System.out.print(i + " ¸¹¦P¾Ç¡A ¾Ç·~¦¨ÁZ:" + grade + "\t\t¾Ş¦æ¦¨ÁZ: " + conduct );
-			System.out.print("\tµû»y: ");
+			System.out.print(i + " è™ŸåŒå­¸ï¼Œ å­¸æ¥­æˆç¸¾:" + grade + "\t\tæ“è¡Œæˆç¸¾: " + conduct );
+			System.out.print("\tè©•èª: ");
 			switch(conduct) {
-			/* ¥H¾Ş¦æ¦¨ÁZ¬°±ø¥ó§PÂ_¤À¬°¥Ò¡B¤A©M¤ş¤TºØ¦¨ÁZ */
-			case '¥Ò':
-				if(grade >= 80) {  		  // ¾Ç·~¤À¼Æ°ª©ó80¤À(§t)¡C
-					System.out.println("Á`²Î");
-				} else if(grade >= 60) {  // ¾Ç·~¦¨ÁZ¤¶©ó60¤À¦Ü79¤À¤§¶¡¡C
-					System.out.println("¥«ªø");
-				} else { 				  // ¾Ç·~¦¨ÁZ§C©ó60¤À¡C
-					System.out.println("§½ªø");
+			/* ä»¥æ“è¡Œæˆç¸¾ç‚ºæ¢ä»¶åˆ¤æ–·åˆ†ç‚ºç”²ã€ä¹™å’Œä¸™ä¸‰ç¨®æˆç¸¾ */
+			case 'ç”²':
+				if(grade >= 80) {  		  // å­¸æ¥­åˆ†æ•¸é«˜æ–¼80åˆ†(å«)ã€‚
+					System.out.println("ç¸½çµ±");
+				} else if(grade >= 60) {  // å­¸æ¥­æˆç¸¾ä»‹æ–¼60åˆ†è‡³79åˆ†ä¹‹é–“ã€‚
+					System.out.println("å¸‚é•·");
+				} else { 				  // å­¸æ¥­æˆç¸¾ä½æ–¼60åˆ†ã€‚
+					System.out.println("å±€é•·");
 				}
 				break;
-			case '¤A':
+			case 'ä¹™':
 				if(grade >= 80) {
-					System.out.println("¦ÑÁó");
+					System.out.println("è€é—†");
 				} else if(grade >= 60) {
-					System.out.println("¸g²z");
+					System.out.println("ç¶“ç†");
 				} else {
-					System.out.println("½Òªø");
+					System.out.println("èª²é•·");
 				}
 				break;
-			case '¤ş':
+			case 'ä¸™':
 				if(grade >= 80) {
-					System.out.println("¤Ñ¤~");
+					System.out.println("å¤©æ‰");
 				}else if(grade >= 60) {
-					System.out.println("¤H¤~");
+					System.out.println("äººæ‰");
 				} else {
-					System.out.println("º~¤l");
+					System.out.println("æ¼¢å­");
 				}
 				break;
 			default:

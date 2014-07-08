@@ -21,16 +21,16 @@ public class ElectrityBill {
 		int kind;
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.print(" ­pºâ®a®x¥Î¹q½Ğ¿é¤J1¡A­pºâ¤u·~¥Î¹q½Ğ¿é¤J2: ");
+		System.out.print(" è¨ˆç®—å®¶åº­ç”¨é›»è«‹è¼¸å…¥1ï¼Œè¨ˆç®—å·¥æ¥­ç”¨é›»è«‹è¼¸å…¥2: ");
 		kind = scanner.nextInt();
-		System.out.print("½Ğ°İ±z¨Ï¥Îªº¹q¶q(«×): ");
+		System.out.print("è«‹å•æ‚¨ä½¿ç”¨çš„é›»é‡(åº¦): ");
 		degree = scanner.nextInt();
 		if( kind == 1) {
 			price = familyElctrity(degree);
 		} else {
 			price = degree * 0.45;
 		}
-		System.out.printf("±z©Ò²Ö­pªº¹q¶O¬°: %.2f ¤¸¡C%n", price);
+		System.out.printf("æ‚¨æ‰€ç´¯è¨ˆçš„é›»è²»ç‚º: %.2f å…ƒã€‚%n", price);
 		
 	} // end of main()
 } // end of class ElectrityBill

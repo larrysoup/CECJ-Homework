@@ -1,15 +1,15 @@
 
 public class Poker {	
 	public static void main(String[] args) {
-		int ranSuit, ranNo, temp;        // ranSuit ªá¦â; ranNo µP¸¹; temp ®e¾¹
+		int ranSuit, ranNo, temp;        // ranSuit èŠ±è‰²; ranNo ç‰Œè™Ÿ; temp å®¹å™¨
 		int[] poker = new int [52];
 
-		for(int i = 1; i <= poker.length; i++) {    // ±N¼Æ¦r1¦Ü52¥H»¼¼W¶¶§Ç©ñ¤J°}¦C¤¤
+		for(int i = 1; i <= poker.length; i++) {    // å°‡æ•¸å­—1è‡³52ä»¥éžå¢žé †åºæ”¾å…¥é™£åˆ—ä¸­
 			poker[i-1] = i;
 		}
 
 		for(int i = 0; i < poker.length; i++) {
-			/* ¥H¶Ã¼Æ¨úPoker°}¦Cªº¯Á¤Þ­È, ±NÀH¾÷¨ú¯Á¤Þ­È¤§°}¦C¤¤ªº­È»P­ì©l°}¦C¤¤ªº­È¨â¨â¥æ´«, ¹F¨ì¬~µPªº®ÄªG */
+			/* ä»¥äº‚æ•¸å–Pokeré™£åˆ—çš„ç´¢å¼•å€¼, å°‡éš¨æ©Ÿå–ç´¢å¼•å€¼ä¹‹é™£åˆ—ä¸­çš„å€¼èˆ‡åŽŸå§‹é™£åˆ—ä¸­çš„å€¼å…©å…©äº¤æ›, é”åˆ°æ´—ç‰Œçš„æ•ˆæžœ */
 			ranNo = (int) (Math.random()*52);
 			temp = poker[i];
 			poker[i] = poker[ranNo];
@@ -17,20 +17,20 @@ public class Poker {
 		}
 
 		for(int i = 0; i < poker.length; i++) {
-			if(i % 13 == 0) System.out.println();    // ¨Cµo§¹¤@²ÕµP§Y´«¦æ.(13±iµP)
+			if(i % 13 == 0) System.out.println();    // æ¯ç™¼å®Œä¸€çµ„ç‰Œå³æ›è¡Œ.(13å¼µç‰Œ)
 			ranSuit = poker[i] / 13;
-			switch(ranSuit) {    // ¥H°Ó¼Æ§PÂ_ªá¦â
+			switch(ranSuit) {    // ä»¥å•†æ•¸åˆ¤æ–·èŠ±è‰²
 			case 1:
-				System.out.printf("%2d%s  ", poker[i]%13 + 1, "¤ß");    // 13~25 ¬õ¤ß
+				System.out.printf("%2d%s  ", poker[i]%13 + 1, "å¿ƒ");    // 13~25 ç´…å¿ƒ
 				break;
 			case 2:
-				System.out.printf("%2d%s  ", poker[i]%13 + 1, "¿j");    // 26~38 ¤è¶ô(¬õ¿j)
+				System.out.printf("%2d%s  ", poker[i]%13 + 1, "ç£š");    // 26~38 æ–¹å¡Š(ç´…ç£š)
 				break;
 			case 3:
-				System.out.printf("%2d%s  ", poker[i]%13 + 1, "®ç");    // 39~51 ¶Â®ç
+				System.out.printf("%2d%s  ", poker[i]%13 + 1, "æ¡ƒ");    // 39~51 é»‘æ¡ƒ
 				break;
 			default:
-				System.out.printf("%2d%s  ", poker[i]%13 + 1, "ªá");    // 1~12&52 ±öªá
+				System.out.printf("%2d%s  ", poker[i]%13 + 1, "èŠ±");    // 1~12&52 æ¢…èŠ±
 				break;
 			} // end of switch
 		} // end of outer for

@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class Rain {
-	static int YEAR = 5;     // ¦~
-	static int SEASON = 4;   // ¤@¦~¥|©u
-	static int MONTH = 3;    // ¤@©u¤T­Ó¤ë
-	static int ALL = 60;     // ¤­¦~¤ëÁ`¼Æ
+	static int YEAR = 5;     // å¹´
+	static int SEASON = 4;   // ä¸€å¹´å››å­£
+	static int MONTH = 3;    // ä¸€å­£ä¸‰å€‹æœˆ
+	static int ALL = 60;     // äº”å¹´æœˆç¸½æ•¸
 
-	public static double rainfallAvg(String period, int time) {    // ­pºâ­°«B¶q¥­§¡
+	public static double rainfallAvg(String period, int time) {    // è¨ˆç®—é™é›¨é‡å¹³å‡
 		double avg = 0;
 		double sum = 0;
 		int group;
@@ -26,36 +26,36 @@ public class Rain {
 				{ {1.0, 3.0, 2.5}, {4.0, 0.5, 2.5}, {7.0, 2.0, 0.0}, {8.5, 4.0, 0.0} }
 		};
 
-		switch(period) {    // §PÂ_½d³ò
+		switch(period) {    // åˆ¤æ–·ç¯„åœ
 		case "year":
-			/* ­pºâ·í¦~¥­§¡­°«B¶q */
+			/* è¨ˆç®—ç•¶å¹´å¹³å‡é™é›¨é‡ */
 			for(int j = 0; j < SEASON; j++) {
 				for(int k = 0; k < MONTH; k++) {
 					sum += rainfall[time-1][j][k];
 				}
 			}
-			avg = sum / (MONTH * 4);    // ¤@¦~ = 12­Ó¤ë
+			avg = sum / (MONTH * 4);    // ä¸€å¹´ = 12å€‹æœˆ
 			break;
 		case "season":
-			/* ­pºâ·í©uÁ`¥­§¡­°«B¶q(¾ú¦~·í©uÁ`©M) */
+			/* è¨ˆç®—ç•¶å­£ç¸½å¹³å‡é™é›¨é‡(æ­·å¹´ç•¶å­£ç¸½å’Œ) */
 			for(int i = 0; i < YEAR; i++) {
 				for(int k = 0; k < MONTH; k++) {
 					sum += rainfall[i][time-1][k];
 				}
 			}
-			avg = sum / (MONTH * 5);    // 5©u = 15­Ó¤ë
+			avg = sum / (MONTH * 5);    // 5å­£ = 15å€‹æœˆ
 			break;
 		case "month":
-			/* ­pºâ·í¤ëÁ`¥­§¡­°«B¶q(¾ú¦~·í¤ëÁ`©M) */
-			group =  (time - 1) / 3;    /* ­ş¤@©u */
-			time -= (3 * group);    /* ©u¤¤²Ä´X­Ó¤ë¥÷ */
+			/* è¨ˆç®—ç•¶æœˆç¸½å¹³å‡é™é›¨é‡(æ­·å¹´ç•¶æœˆç¸½å’Œ) */
+			group =  (time - 1) / 3;    /* å“ªä¸€å­£ */
+			time -= (3 * group);    /* å­£ä¸­ç¬¬å¹¾å€‹æœˆä»½ */
 			for(int i = 0; i < YEAR; i++) {
 				sum += rainfall[i][group][time-1];
 			}
-			avg = sum / YEAR;    // ¦@¦³5¦~
+			avg = sum / YEAR;    // å…±æœ‰5å¹´
 			break;	
 		default:
-			/* ©Ò¦³¤ë¥÷­°«B¶qÁ`©M */
+			/* æ‰€æœ‰æœˆä»½é™é›¨é‡ç¸½å’Œ */
 			for(double[][] ele : rainfall) {
 				for(double[] rows : ele) {
 					for(double values : rows) {
@@ -63,7 +63,7 @@ public class Rain {
 					}
 				}
 			}
-			avg = sum / ALL ;    // 60­Ó¤ë
+			avg = sum / ALL ;    // 60å€‹æœˆ
 			break;
 		}
 		return avg;
@@ -71,43 +71,43 @@ public class Rain {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		String str, period = null;    // str ¨Ï¥ÎªÌ¿é¤J°Ñ¼Æ; period ½d³ò
-		int time = 0;    // time ®É¶¡
+		String str, period = null;    // str ä½¿ç”¨è€…è¼¸å…¥åƒæ•¸; period ç¯„åœ
+		int time = 0;    // time æ™‚é–“
 		double AVG;
 
 		while(true) {
-			System.out.print("½Ğ¨Ì·Ó®æ¦¡¿é¤J±ı¬d¸ßªº½d³ò»P®É¶¡, ¨â°Ñ¼Æ¤§¶¡¥HªÅ®æ¹j¶}(period time):");
+			System.out.print("è«‹ä¾ç…§æ ¼å¼è¼¸å…¥æ¬²æŸ¥è©¢çš„ç¯„åœèˆ‡æ™‚é–“, å…©åƒæ•¸ä¹‹é–“ä»¥ç©ºæ ¼éš”é–‹(period time):");
 			str = scanner.nextLine();
 			String[] tokens = str.split(" ");
-			if(tokens.length > 1) { // ±N¨Ï¥ÎªÌ¿é¤J¤§°Ñ¼Æ¦s¤JÅÜ¼Æ
+			if(tokens.length > 1) { // å°‡ä½¿ç”¨è€…è¼¸å…¥ä¹‹åƒæ•¸å­˜å…¥è®Šæ•¸
 				period = tokens[0];
 				time = Integer.parseInt(tokens[1]);
-			} else if( str.equals("") ){  // ¨Ï¥ÎªÌ¿é¤J0­Ó°Ñ¼Æ, ­pºâ­°«B¶qÁ`¥­§¡
+			} else if( str.equals("") ){  // ä½¿ç”¨è€…è¼¸å…¥0å€‹åƒæ•¸, è¨ˆç®—é™é›¨é‡ç¸½å¹³å‡
 				period = "all";
 				AVG = rainfallAvg(period, time);
-				System.out.println("Á`¥­§¡«B¶q¬°: " + AVG);
+				System.out.println("ç¸½å¹³å‡é›¨é‡ç‚º: " + AVG);
 				continue;
 			}
 
-			if(tokens.length == 2 ) {    // ÀË¬d¨Ï¥ÎªÌ¿é¤J°Ñ¼Æ¥¿½T©Ê
+			if(tokens.length == 2 ) {    // æª¢æŸ¥ä½¿ç”¨è€…è¼¸å…¥åƒæ•¸æ­£ç¢ºæ€§
 				if( period.equals("year") || period.equals("season") || period.equals("month") ) {
 					if( period.equals("year") && (time>=1 && time<=5) ) {
 						AVG = rainfallAvg(period, time);
-						System.out.printf("²Ä %d ¦~ªº¥­§¡«B¶q¬°: %f %n", time, AVG);
+						System.out.printf("ç¬¬ %d å¹´çš„å¹³å‡é›¨é‡ç‚º: %f %n", time, AVG);
 					} else if( period.equals("season") && (time>=1 && time<=4) ) {
 						AVG = rainfallAvg(period, time);
-						System.out.printf("²Ä %d ©uªºÁ`¥­§¡«B¶q¬°: %f %n", time, AVG);
+						System.out.printf("ç¬¬ %d å­£çš„ç¸½å¹³å‡é›¨é‡ç‚º: %f %n", time, AVG);
 					} else if( period.equals("month") && (time>=1 && time<=12) ) {
 						AVG = rainfallAvg(period, time);
-						System.out.printf(" %d ¤ëªºÁ`¥­§¡«B¶q¬°: %f %n", time, AVG);
+						System.out.printf(" %d æœˆçš„ç¸½å¹³å‡é›¨é‡ç‚º: %f %n", time, AVG);
 					} else {
-						System.out.println("±z¿é¤Jªº®É¶¡¦³»~, ½Ğ­«·s¿é¤J.");
+						System.out.println("æ‚¨è¼¸å…¥çš„æ™‚é–“æœ‰èª¤, è«‹é‡æ–°è¼¸å…¥.");
 					}
 				} else {
-					System.out.println("±z¿é¤Jªº½d³ò¦³»~, ½Ğ­«·s¿é¤J.");
+					System.out.println("æ‚¨è¼¸å…¥çš„ç¯„åœæœ‰èª¤, è«‹é‡æ–°è¼¸å…¥.");
 				}
 			} else {
-				System.out.println("±z¿é¤Jªº°Ñ¼Æ¦³»~, ­«·s¿é¤J½Ğ«öY, Â÷¶}½Ğ¿é¤JN.");
+				System.out.println("æ‚¨è¼¸å…¥çš„åƒæ•¸æœ‰èª¤, é‡æ–°è¼¸å…¥è«‹æŒ‰Y, é›¢é–‹è«‹è¼¸å…¥N.");
 				str = scanner.nextLine();
 				if( str.toUpperCase().equals("N") ) break;
 				else continue;

@@ -1,7 +1,7 @@
 
 public class TwoDimArray {
 	
-	public static double average(int arr[][]) {		// ºâ°}¦C©Ò¦³¼Æ¥­§¡­È
+	public static double average(int arr[][]) {		// ç®—é™£åˆ—æ‰€æœ‰æ•¸å¹³å‡å€¼
 		int  sum = 0, count = 0;
 		double result;
 		for(int i = 0; i < arr.length; i++) {
@@ -14,7 +14,7 @@ public class TwoDimArray {
 		return result;
 	} // end of method average
 	
-	public static double average(int arr[][], int row) {	// ºâ°}¦C©Ò¦³¼Æ¥­§¡­È
+	public static double average(int arr[][], int row) {	// ç®—é™£åˆ—æ‰€æœ‰æ•¸å¹³å‡å€¼
 		/* Overloading Method */
 		int  sum = 0, count = 0;
 		double result;
@@ -62,10 +62,10 @@ public class TwoDimArray {
 			{11, 12, 9, 10}
 		};
 		
-		System.out.printf("¥­§¡: %.2f %n", average(arr) );
-		System.out.printf("³Ì¤j­È: %d ¡A ³Ì¤p­È: %d%n", max(arr), min(arr) );
+		System.out.printf("å¹³å‡: %.2f %n", average(arr) );
+		System.out.printf("æœ€å¤§å€¼: %d ï¼Œ æœ€å°å€¼: %d%n", max(arr), min(arr) );
 		for(int i=0; i < arr.length; i++) {
-			System.out.printf("²Ä %d ²Õªº¥­§¡¬°: %.2f %n", i+1, average(arr, i));
+			System.out.printf("ç¬¬ %d çµ„çš„å¹³å‡ç‚º: %.2f %n", i+1, average(arr, i));
 		}
 	} // end of main()
 } // end of class TwoDimArray

@@ -1,34 +1,33 @@
-
 import java.util.Scanner;
 
 public class Prime {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		int num, count = 0, temp;	// count °}¦C¯Á¤Ş­p¼Æ; temp §PÂ_½è¼Æ¥Î¤§«×¶q.
+		int num, count = 0, temp;	// count é™£åˆ—ç´¢å¼•è¨ˆæ•¸; temp åˆ¤æ–·è³ªæ•¸ç”¨ä¹‹åº¦é‡.
 		int[] primeNo;
 		
-		System.out.print("½Ğ¿é¤J¤@¼Æ¦r: ");
+		System.out.print("è«‹è¼¸å…¥ä¸€æ•¸å­—: ");
 		num = scanner.nextInt();
 		System.out.println();
-		primeNo = new int[ (num/2)+2 ];		// (num/2)+2¬O¥Ø«e·Q¨ì´î¤Ö°}¦CªÅ¶¡¥i¦æªº¤è¦¡¤§¤@, ÁÙ«İ§ï¶i.
-		for(int i = num; i > 1 ; i--) { 	// ±±¨î³Q°£¼Æ(»¼´îloop)
-			temp = num;  // ³]©wªì©l«×¶q­È
-			for(int j = i - 1; j >= 2; j--) {  // ±±¨î°£¼Æ(»¼´îloop)
+		primeNo = new int[ (num/2)+2 ];		// (num/2)+2æ˜¯ç›®å‰æƒ³åˆ°æ¸›å°‘é™£åˆ—ç©ºé–“å¯è¡Œçš„æ–¹å¼ä¹‹ä¸€, é‚„å¾…æ”¹é€².
+		for(int i = num; i > 1 ; i--) { 	// æ§åˆ¶è¢«é™¤æ•¸(éæ¸›loop)
+			temp = num;  // è¨­å®šåˆå§‹åº¦é‡å€¼
+			for(int j = i - 1; j >= 2; j--) {  // æ§åˆ¶é™¤æ•¸(éæ¸›loop)
 				if(i % j == 0) {
-					temp--;		// ­Y¦³¦]¼Æ, «h«×¶q­È»¼´î; §_«hÄ~Äò°j°é.
+					temp--;		// è‹¥æœ‰å› æ•¸, å‰‡åº¦é‡å€¼éæ¸›; å¦å‰‡ç¹¼çºŒè¿´åœˆ.
 				} else {
 					continue;
 				} // end of if...else
 			}
-			if(temp == num) {	// ­Y«×¶q­È¥¼§ïÅÜ, «hªí¥Ü¦¹¼Æ¬°½è¼Æ.
+			if(temp == num) {	// è‹¥åº¦é‡å€¼æœªæ”¹è®Š, å‰‡è¡¨ç¤ºæ­¤æ•¸ç‚ºè³ªæ•¸.
 				primeNo[count] = i;
-				count++;	// °}¦C¯Á¤Ş­È»¼¼W, µ¥«İ¤U¤@­Ó½è¼Æ¦s¤J.
+				count++;	// é™£åˆ—ç´¢å¼•å€¼éå¢, ç­‰å¾…ä¸‹ä¸€å€‹è³ªæ•¸å­˜å…¥.
 			}
 		} // end of outer for
 
 		for(int i = 0; i < primeNo.length; i++) {
 			if(primeNo[i] == 0) {
-				System.out.printf("¦@¦³%5d ­Ó½è¼Æ.%n", i);
+				System.out.printf("å…±æœ‰%5d å€‹è³ªæ•¸.%n", i);
 				break;
 			}
 			System.out.print(primeNo[i] + " , ");

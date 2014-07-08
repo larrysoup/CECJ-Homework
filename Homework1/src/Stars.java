@@ -1,15 +1,15 @@
 /*
- * °j°é±Ô­z½m²ß
- * µe¥X¤TºØ±Æ¦Cªº¬P¬P¹Ï§Î¡F(1)¥ª¤Uª½¨¤¤T¨¤§Î ¡C (2)¥k¤Wª½¨¤¤T¨¤§Î¡C  (3)¥¿¤T¨¤§Î¡C
+ * è¿´åœˆæ•˜è¿°ç·´ç¿’
+ * ç•«å‡ºä¸‰ç¨®æ’åˆ—çš„æ˜Ÿæ˜Ÿåœ–å½¢ï¼›(1)å·¦ä¸‹ç›´è§’ä¸‰è§’å½¢ ã€‚ (2)å³ä¸Šç›´è§’ä¸‰è§’å½¢ã€‚  (3)æ­£ä¸‰è§’å½¢ã€‚
  * @author Mark
  */
 public class Stars {
 
-	public static void stars1() {
+	static void Stars1 () {
 		for(int i = 0; i <= 4; i++) {		// row
 			for(int j = 0; j <= 4; j++) {   // column
 				if(j <= i) {
-					/* ­Y column¤p©óµ¥©órow®É¡A¦L¥XªÅ¥Õ¦r¤¸¡C§_«h¡A¦L¥X¬P¸¹ */
+					/* è‹¥ columnå°æ–¼ç­‰æ–¼rowæ™‚ï¼Œå°å‡ºç©ºç™½å­—å…ƒã€‚å¦å‰‡ï¼Œå°å‡ºæ˜Ÿè™Ÿ */
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
@@ -20,11 +20,11 @@ public class Stars {
 		System.out.print("\n");
 	} //end of Stars1()
 	
-	public static void stars2() {
+	static void Stars2() {
 		for(int i = 0; i <= 4; i++) {		//row
 			for(int j = 0; j <= 4; j++) {   //column
 				if(j < i) {
-					/* ­Y column¤p©órow®É¡A¦L¥XªÅ¥Õ¦r¤¸¡C§_«h¡A¦L¥X¬P¸¹ */
+					/* è‹¥ columnå°æ–¼rowæ™‚ï¼Œå°å‡ºç©ºç™½å­—å…ƒã€‚å¦å‰‡ï¼Œå°å‡ºæ˜Ÿè™Ÿ */
 					System.out.print(" ");
 				} else {
 					System.out.print("*");
@@ -35,13 +35,13 @@ public class Stars {
 		System.out.print("\n");
 	} //end of Stars2()
 	
-	public static void stars3() {
-		/* §Q¥Î5*5¤j¤pªº¨â­Óª½¨¤¤T¨¤§Î«÷¦¨¤@­Ó¥¿¤T¨¤§Î(5*10)  */
+	static void Stars3() {
+		/* åˆ©ç”¨5*5å¤§å°çš„å…©å€‹ç›´è§’ä¸‰è§’å½¢æ‹¼æˆä¸€å€‹æ­£ä¸‰è§’å½¢(5*10)  */
 		for(int i = 0; i <= 4; i++) {	// row
-			System.out.print(" ");		// ¨C¤@¦Cªº¶}ÀY¦L¤@­ÓªÅ¥Õ¦r¦ê¡C
+			System.out.print(" ");		// æ¯ä¸€åˆ—çš„é–‹é ­å°ä¸€å€‹ç©ºç™½å­—ä¸²ã€‚
 			for(int j = 4; j >= 1; j--) { // column
 				if(j > i) {
-					/* ¦L¥X¥ª¥bÃäª½¨¤¤T¨¤§Î¡A­Ycolumn¤j©órow®É¡A¦L¥XªÅ¥Õ¦r¤¸¡C§_«h¡A¦L¥X"*"(³Ì«á¤@¦C¦@4Áû¬P¸¹) */
+					/* å°å‡ºå·¦åŠé‚Šç›´è§’ä¸‰è§’å½¢ï¼Œè‹¥columnå¤§æ–¼rowæ™‚ï¼Œå°å‡ºç©ºç™½å­—å…ƒã€‚å¦å‰‡ï¼Œå°å‡º"*"(æœ€å¾Œä¸€åˆ—å…±4é¡†æ˜Ÿè™Ÿ) */
 					System.out.print(" ");
 				} else {
 					System.out.print("*");
@@ -49,7 +49,7 @@ public class Stars {
 			}
 			for(int k = 0; k <= 4; k++) { // column
 				if(k <= i) {
-					/* ¦L¥X¥k¥bÃäª½¨¤¤T¨¤§Î¡A­Ycolumn¤j©órow®É¡A¦L¥X¬P¸¹¡C§_«h¡A¦L¥XªÅ¥Õ¦r¤¸(³Ì«á¤@¦C¦@5Áû¬P¸¹) */
+					/* å°å‡ºå³åŠé‚Šç›´è§’ä¸‰è§’å½¢ï¼Œè‹¥columnå¤§æ–¼rowæ™‚ï¼Œå°å‡ºæ˜Ÿè™Ÿã€‚å¦å‰‡ï¼Œå°å‡ºç©ºç™½å­—å…ƒ(æœ€å¾Œä¸€åˆ—å…±5é¡†æ˜Ÿè™Ÿ) */
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
@@ -62,10 +62,10 @@ public class Stars {
 	
 	public static void main(String[] args) {
 		System.out.println("(1)");
-		stars1();  // ¥ª¤U¤T¨¤§Î
+		Stars1();  // å·¦ä¸‹ä¸‰è§’å½¢
 		System.out.println("(2)");
-		stars2();  // ¥k¤W¤T¨¤§Î
+		Stars2();  // å³ä¸Šä¸‰è§’å½¢
 		System.out.println("(3)");
-		stars3();  // ¥¿¤T¨¤§Î
+		Stars3();  // æ­£ä¸‰è§’å½¢
 	} // end of main()
 } // end of class Stars
