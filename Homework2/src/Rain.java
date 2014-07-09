@@ -82,7 +82,8 @@ public class Rain {
 			if(tokens.length > 1) { // 將使用者輸入之參數存入變數
 				period = tokens[0];
 				time = Integer.parseInt(tokens[1]);
-			} else if( str.equals("") ){  // 使用者輸入0個參數, 計算降雨量總平均
+			} 
+			else if( str.equals("") ){  // 使用者輸入0個參數, 計算降雨量總平均
 				period = "all";
 				AVG = rainfallAvg(period, time);
 				System.out.println("總平均雨量為: " + AVG);
@@ -94,19 +95,24 @@ public class Rain {
 					if( period.equals("year") && (time>=1 && time<=5) ) {
 						AVG = rainfallAvg(period, time);
 						System.out.printf("第 %d 年的平均雨量為: %f %n", time, AVG);
-					} else if( period.equals("season") && (time>=1 && time<=4) ) {
+					} 
+					else if( period.equals("season") && (time>=1 && time<=4) ) {
 						AVG = rainfallAvg(period, time);
 						System.out.printf("第 %d 季的總平均雨量為: %f %n", time, AVG);
-					} else if( period.equals("month") && (time>=1 && time<=12) ) {
+					} 
+					else if( period.equals("month") && (time>=1 && time<=12) ) {
 						AVG = rainfallAvg(period, time);
 						System.out.printf(" %d 月的總平均雨量為: %f %n", time, AVG);
-					} else {
+					} 
+					else {
 						System.out.println("您輸入的時間有誤, 請重新輸入.");
 					}
-				} else {
+				} 
+				else {
 					System.out.println("您輸入的範圍有誤, 請重新輸入.");
 				}
-			} else {
+			} 
+			else {
 				System.out.println("您輸入的參數有誤, 重新輸入請按Y, 離開請輸入N.");
 				str = scanner.nextLine();
 				if( str.toUpperCase().equals("N") ) break;
