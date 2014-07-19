@@ -120,11 +120,15 @@ public class IDGenerator {
 		System.out.println("V 台東縣    W 金門縣    X 澎湖縣    Y 陽明山    Z 連江縣");
 		System.out.println("------------------------------------------------");
 		while (true) {
-			System.out.print("請輸入您的地區(見上列)與性別(M/F): ");
+			System.out.print("請輸入您的地區(見上列)與性別(M/F), 離開請輸入exit: ");
 			str = scanner.nextLine();
 			if(checkValue(str)) {    // 檢查參數正確性
 				createID(str);       // 產生一組身份證字號
 				System.out.println();
+			}
+			else if (str.toLowerCase().equals("exit")) {
+				scanner.close();
+				System.exit(0);
 			}
 		} // end of infinite while loop
 	} // end of main()

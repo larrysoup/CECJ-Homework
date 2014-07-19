@@ -22,13 +22,6 @@ public class Rain {
 		double avg = 0;
 		double sum = 0;
 		int seasonRange;
-		//		double[][] rainfall = new double[][] {
-		//				{6.0, 3.0, 2.5, 6.0, 0.5, 2.5, 7.0, 10.0, 0.0, 8.5, 4.0, 3.5}, 	
-		//				{8.0, 3.0, 2.5, 6.0, 0.5, 2.5, 7.0, 10.0, 0.0, 8.5, 4.0, 3.5}, 	
-		//				{12.0, 3.0, 2.5, 6.0, 0.5, 2.5, 7.0, 10.0, 0.0, 8.5, 4.0, 3.5}, 	
-		//				{3.0, 3.0, 2.5, 6.0, 0.5, 2.5, 7.0, 10.0, 0.0, 8.5, 4.0, 3.5}, 	
-		//				{1.0, 3.0, 2.5, 6.0, 0.5, 2.5, 7.0, 10.0, 0.0, 8.5, 4.0, 3.5}, 	
-		//		};
 
 		double[][][] rainfall = new double[][][] {
 				{ {6.0, 3.0, 2.5}, {5.0, 0.5, 2.5}, {7.0, 2.0, 0.0}, {8.5, 4.0, 2.5} },
@@ -60,9 +53,8 @@ public class Rain {
 		case "month":
 			/* 計算當月總平均降雨量(歷年當月總和) */
 			seasonRange =  (time - 1) / 3;                  // 哪一季
-			time -= (3 * seasonRange);                      // 季中第幾個月份
 			for (int i = 0; i < YEAR; i++) {
-				sum += rainfall[i][seasonRange][time-1];
+				sum += rainfall[i][seasonRange][(time - 1) % 3];
 			}
 			avg = sum / YEAR;
 			break;	
@@ -127,7 +119,10 @@ public class Rain {
 			else {
 				System.out.println("您輸入的參數有誤, 重新輸入請按Y, 離開請輸入exit");
 				str = scanner.nextLine();
-				if (str.toLowerCase().equals("exit")) System.exit(0);
+				if (str.toLowerCase().equals("exit")) {
+					scanner.close();
+					System.exit(0);
+				}
 				else continue;
 			} // end of outer if..else
 		} // end of while

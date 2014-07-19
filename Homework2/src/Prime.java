@@ -47,5 +47,6 @@ public class Prime {
 			}
 			System.out.print(primeNo[i] + " , ");
 		}
+		scanner.close();
 	} // end of main()
 } // end of class Prime

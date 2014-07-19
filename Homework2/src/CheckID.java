@@ -73,7 +73,10 @@ public class CheckID {
 		while (true) {
 			System.out.print("身分證字號驗證器, 欲離開請輸入\"exit\"\n請輸入您的身分證字號: ");
 			str = scanner.nextLine();
-			if (str.toLowerCase().equals("exit")) System.exit(0);
+			if (str.toLowerCase().equals("exit")) {
+				scanner.close();
+				System.exit(0);
+			}
 			String[] tokens = str.split("");
 			tokens[0].toUpperCase();
 			if (tokens.length == 10) {               // 檢查ID格式長度

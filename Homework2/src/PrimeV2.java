@@ -42,5 +42,6 @@ public class PrimeV2 {
 			}
 		}
 		System.out.printf("共有 %d 個質數.", count);
+		scanner.close();
 	} // end of main()
 }

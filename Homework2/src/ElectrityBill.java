@@ -43,5 +43,6 @@ public class ElectrityBill {
 			price = degree * 0.45;
 		}
 		System.out.printf("您所累計的電費為: %.2f 元。%n", price);
+		scanner.close();
 	} // end of main()
 } // end of class ElectrityBill
