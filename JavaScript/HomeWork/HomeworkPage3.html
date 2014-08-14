@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>JavaScript HomeWork Website</title>
+
+    <script>
+        var staus = false;    // 點擊評分的狀態
+
+        window.onload = function () {
+            var stars = document.getElementsByTagName("img");
+
+            for (var i = 0 ; i < stars.length; i++) {
+                stars[i].onmouseover = function () { mouseOverStar(this.id, stars); }   // 滑鼠滑入
+                stars[i].onmouseout = function () { mouseOutStar(this.id, stars); }     // 滑鼠滑出 
+                stars[i].onclick = function () { clickStar(this.id, stars); }           // 滑鼠點擊
+                //alert(stars[0].id);
+                document.getElementById("Value").textContent = "您的評價: 顆星";
+            }
+        }
+
+        function mouseOverStar(id, stars) {
+            if (!staus) {                                         // 若未有評分, 則執行滑入動作
+                var starIndex = parseInt(id.substr(4)) - 1;       // 傳入id後, 取後面的數字(1~5), 表示星星數
+                //alert(starIndex);
+                for (var i = 0; i <= starIndex; i++) {
+                    stars[i].src = "images/Star/starCh.png";      // 將滑入的星星改變成為選取(Choose)      
+                }
+            }
+        }
+
+        function mouseOutStar(id, stars) {
+            if (!staus) {                                         // 若未有評分, 則執行滑出動作
+                var starIndex = parseInt(id.substr(4)) - 1;
+                //alert(starIndex);
+                for (var i = 0; i <= starIndex; i++) {
+                    stars[i].src = "images/Star/starOFF.png";     // 滑出後，將有Choose的星星回復成空的星星(Off)
+                }
+            }
+        }
+
+        function clickStar(id, stars) {
+            var starIndex = parseInt(id.substr(4)) - 1;
+            if (staus) {                                          // 若已評分狀態下, 而再度點擊, 則執行清除動作
+                for (var i = 0; i <= stars.length - 1; i++) {       // 將所有星星回復成空的星星
+                    stars[i].src = "images/Star/starOFF.png";
+                }
+                for (var i = 0; i <= starIndex; i++) {            // 將點擊的星星改變成為Choose
+                    stars[i].src = "images/Star/starCh.png";
+                }
+                staus = false;                                    // 將狀態設回未評分狀態
+                document.getElementById("Value").textContent = "您的評價: 顆星";
+            }
+            else {                                                // 未評分狀態下點擊, 則執行評分動作
+                for (var i = 0; i <= starIndex; i++) {            // 將點擊的星星改變為亮的(On)
+                    stars[i].src = "images/Star/starON.png";
+                }
+                staus = true;                                     // 將狀態設為已評分狀態
+                document.getElementById("Value").textContent = "您的評價: " + (starIndex + 1) + " 顆星";
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="menu">
+                <ul>
+                    <li><a href="HomeworkPage1.html">Homework1</a></li>
+                    <li><a href="HomeworkPage2.html">Homework2</a></li>
+                    <li><a href="HomeworkPage3.html">Homework3</a></li>
+                    <li><a href="HomeworkPage4.html">Homework4</a></li>
+                    <li><a href="HomeworkPage5.html">Homework5</a></li>
+                </ul>
+            </div>
+            <h1><a href="HomeworkPage1.html">JS HomeWork </a></h1>
+        </div>
+
+        <div id="contentwrap">
+            <div id="content">
+                <h2>HomeWork3</h2>
+                <div>
+                    <form>
+                        <fieldset>
+                            <legend>Stars</legend>
+                            <img id="Star1" src="images/Star/starOFF.png">
+                            <img id="Star2" src="images/Star/starOFF.png">
+                            <img id="Star3" src="images/Star/starOFF.png">
+                            <img id="Star4" src="images/Star/starOFF.png">
+                            <img id="Star5" src="images/Star/starOFF.png">
+                            <figcaption id="Value"></figcaption>
+                            <br>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="footer">
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="http://purecss.io/"><span>Pure</span></a>
+                        </li>
+                        <li>
+                            <a href="https://kuler.adobe.com/zh/create/color-wheel/"><span>kuler</span></a>
+                        </li>
+                        <li>
+                            <a href="http://pixlr.com/editor/"><span>Pixlr</span></a>
+                        </li>
+                        <li>
+                            <a href="HomeworkPage4.html"><span>Homework4</span></a>
+                        </li>
+                        <li>
+                            <a href="HomeworkPage5.html"><span>Homework5</span></a>
+                        </li>
+                    </ul>
+                    <p>
+                        &#169; Copyright &#169; 2014.Mark Kao CECJ0612 all rights reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

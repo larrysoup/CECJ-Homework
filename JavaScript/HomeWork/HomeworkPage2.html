@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>JavaScript HomeWork Website</title>
+
+    <script>
+        var nameFlag = false;
+        var pwdFlag = false;
+        var dateFlag = false;
+
+        function checkname() {
+            var theName = document.getElementById("idName").value;
+            re = /^\S+[^\u4E00-\u9fa5]$/;
+            re2 = /^[\u4E00-\u9fa5]{2,}$/;
+
+            if (re.test(theName)) {
+                document.getElementById("imgsp1").innerHTML = "<img src='images/hwp2/error.png'/>";
+                nameFlag = false;
+            } else if (re2.test(theName)) {
+                document.getElementById("imgsp1").innerHTML = "<img src='images/hwp2/correct.png'/>";
+                nameFlag = true;
+            } else {
+                document.getElementById("imgsp1").innerHTML = "<img src='images/hwp2/error.png'/>";
+                nameFlag = false;
+            }
+        }
+
+        function checkpwd() {
+            var thePwd = document.getElementById("idPwd").value;
+            re = /^[\u4E00-\u9fa5].+$/;
+            re2 = /^(?=.*[\w!@#$%^&*])\S{6,}$/;
+            re3 = /^(?=.*[0-9]).{1,}(?=.*[!@#$%^&*]).{1,}(?=.*[\w].{1,}).+$/;
+
+            if (re.test(thePwd)) {           // 檢查有無中文字, 有則錯誤.
+                document.getElementById("imgsp2").innerHTML = "<img src='images/hwp2/error.png'/>";
+                pwdFlag = false;
+            } else if (re2.test(thePwd)) {   // 檢查有無至少六字, 且包含數字, 英文字母, 特殊字元, 無空白字元. 
+                if (re3.test(thePwd)) {      // 檢查是否至少包含一數字, 一英文字母, 一特殊字元.
+                    document.getElementById("imgsp2").innerHTML = "<img src='images/hwp2/correct.png'/>";
+                    pwdFlag = true;
+                }
+                else {
+                    document.getElementById("imgsp2").innerHTML = "<img src='images/hwp2/error.png'/>";
+                    pwdFlag = false;
+                }
+            } else {
+                document.getElementById("imgsp2").innerHTML = "<img src='images/hwp2/error.png'/>";
+                pwdFlag = false;
+            }
+        }
+
+        function checkdate() {
+            var theDate = document.getElementById("idDate").value;
+            var tokens = new Array();
+            var chkDate = new Date(theDate);
+            var isYear = chkDate.getFullYear();
+            var isMonth = chkDate.getMonth() + 1;
+            var isDate = chkDate.getDate();
+            re = /^\d{4}\/\d{2}\/\d{2}$/;     // 寬鬆檢查日期輸入格式
+
+            if (re.test(theDate))
+                tokens = theDate.split("/");
+            else {
+                document.getElementById("imgsp3").innerHTML = "<img src='images/hwp2/error.png'/>";
+                dateFlag = false;
+                return;
+            }
+            if ((tokens[0] == isYear) && (tokens[1] == isMonth) && (tokens[2] == isDate)) {
+                document.getElementById("imgsp3").innerHTML = "<img src='images/hwp2/correct.png'/>";
+                dateFlag = true;
+            }
+            else {
+                document.getElementById("imgsp3").innerHTML = "<img src='images/hwp2/error.png'/>";
+                dateFlag = false;
+            }
+        }
+
+        function resetf() {
+            for (var i = 1; i <= 3; i++) {
+                document.getElementById('imgsp' + i).innerHTML = "<img src='images/hwp2/clear.png'/>";
+            }
+            document.getElementById("myForm").reset();
+        }
+
+        function submitf() {
+            if (nameFlag == true && pwdFlag == true && dateFlag == true) {
+                alert("全部正確");
+                resetf();
+                nameFlag = false;
+                pwdFlag = false;
+                dateFlag = false;
+            }
+        }
+    </script>
+
+
+    <style type="text/css">
+        .auto-style1 {
+            height: 27px;
+        }
+
+        .pure-button {
+            width: 68px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div id="wrap">
+
+        <div id="header">
+
+            <div class="menu">
+                <ul>
+                    <li><a href="HomeworkPage1.html">Homework1</a></li>
+                    <li><a href="HomeworkPage2.html">Homework2</a></li>
+                    <li><a href="HomeworkPage3.html">Homework3</a></li>
+                    <li><a href="HomeworkPage4.html">Homework4</a></li>
+                    <li><a href="HomeworkPage5.html">Homework5</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <h1><a href="HomeworkPage1.html">JS HomeWork </a></h1>
+
+    </div>
+    <div id="contentwrap">
+        <div id="content">
+            <h2>HomeWork2</h2>
+            <div>
+                <fieldset style="height: 256px; width: 555px">
+                    <legend>Form Check</legend>
+                    <form id="myForm">
+                        <table style="height: 190px; width: 527px; margin-top: 6px;">
+                            <tr>
+                                <td style="text-align: center" class="auto-style1">Name:</td>
+                                <td class="auto-style1">
+                                    <input type="text" name="name" id="idName" size="12" placeholder="請輸入姓名" onblur="checkname();" /><span id="imgsp1" style="color: red;"></span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="auto-style1">
+                                    <label>不可空白,至少兩個字且必須為中文.</label></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center">Password:</td>
+                                <td class="auto-style1">
+                                    <input type="password" name="pwd" id="idPwd" size="12" placeholder="請輸入密碼" onblur="checkpwd();" /><span id="imgsp2" style="color: red;"></span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="auto-style1">
+                                    <label>不可空白,不包含中文,至少6個字且必須包含英文、字母、數字、特殊字元 [!@#$%^&*]</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center" class="auto-style1">Date:</td>
+                                <td class="auto-style1">
+                                    <input type="text" name="date" id="idDate" size="12" placeholder="ex.2014/08/07" onblur="checkdate();" /><span id="imgsp3" style="color: red;"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style1"></td>
+                                <td class="auto-style1">
+                                    <label>(格式:西元年/月/日 ex.2000/02/29) </label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="auto-style1"></td>
+                                <td class="auto-style1">
+                                    <input id="idreset" class="pure-button" type="button" value="Reset" onclick="resetf();" />
+                                    <input id="idsubmit" class="pure-button" type="button" value="Submit" onclick="submitf();" /></td>
+                                <td class="auto-style1">
+                                &nbsp;
+                            </tr>
+                        </table>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <div>
+                <ul>
+                    <li>
+                        <a href="http://purecss.io/"><span>Pure</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kuler.adobe.com/zh/create/color-wheel/"><span>kuler</span></a>
+                    </li>
+                    <li>
+                        <a href="http://pixlr.com/editor/"><span>Pixlr</span></a>
+                    </li>
+                    <li>
+                        <a href="HomeworkPage4.html"><span>Homework4</span></a>
+                    </li>
+                    <li>
+                        <a href="HomeworkPage5.html"><span>Homework5</span></a>
+                    </li>
+                </ul>
+                <p>
+                    &#169; Copyright &#169; 2014.Mark Kao CECJ0612 all rights reserved
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

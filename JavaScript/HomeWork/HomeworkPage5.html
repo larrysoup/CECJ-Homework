@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>JavaScript HomeWork Website</title>
+
+    <script>
+        window.onload = function () {
+            for (var i = 2010; i <= 2020; i++) {    // 新增年
+                var opt = window.document.createElement("option");
+                opt.setAttribute("value", i);
+                var optionnerHTML = document.createTextNode(i);
+                opt.appendChild(optionnerHTML);
+                document.getElementById('idSelectYear').appendChild(opt);
+            }
+
+            for (i = 1; i <= 12; i++) {   // 新增月 
+                var opt = window.document.createElement("option");
+                opt.setAttribute("value", i);
+                var optinnerHTML = document.createTextNode(i);
+                opt.appendChild(optinnerHTML);
+                //opt.value = i;
+                //opt.innerHTML = i;
+                document.getElementById('idSelectMonth').appendChild(opt);
+            }
+            lastDate();    // 新增日
+            check();
+        }
+
+        function lastDate() {
+            //alert("進入lastDate");
+            var yearNo = document.getElementById('idSelectYear').value;      // 取得年
+            var monthNo = document.getElementById('idSelectMonth').value;    // 取得月
+            var theLastDates = new Date(yearNo, monthNo, 0);                 // 取得某年某月的總天數
+            for (var i = 1; i <= theLastDates.getDate() ; i++) {             // 新增日
+                var opt = window.document.createElement("option");
+                opt.setAttribute("value", i);
+                var optinnerHTML = document.createTextNode(i);
+                opt.appendChild(optinnerHTML);
+                document.getElementById('idSelectDate').appendChild(opt);
+            }
+        }
+
+        function dateRemove() {
+            var dateEle = document.getElementById('idSelectDate');     // 取得日的元素物件
+            var dateEleChild;
+
+            //alert(dateEle.value);
+            //alert("child: " + dateEle.childElementCount);
+            if (dateEle.length != 0) {
+                for (var i = dateEle.length - 1; i >= 0; i--) {        // 刪除日
+                    dateEleChild = document.getElementById('idSelectDate').childNodes[i];        // 取得日元素物件下的所有子元素
+                    //alert("dateEleChild= " + dateEleChild.value);
+                    //alert(dateEle.childElementCount);
+                    dateEle.removeChild(dateEleChild);                 // 刪除子元素
+                }
+            }
+        }
+
+        function check() {
+            dateRemove();
+            lastDate();
+            var yearNo = document.getElementById('idSelectYear').value;
+            var monthNo = document.getElementById('idSelectMonth').value;
+            var dateNo = document.getElementById('idSelectDate').childElementCount;        // 取得日元素物件的子元素總數
+            document.getElementById("idsp").innerHTML = yearNo + "年" + monthNo + "月有" + dateNo + "天";
+        }
+    </script>
+
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="menu">
+                <ul>
+                    <li><a href="HomeworkPage1.html">Homework1</a></li>
+                    <li><a href="HomeworkPage2.html">Homework2</a></li>
+                    <li><a href="HomeworkPage3.html">Homework3</a></li>
+                    <li><a href="HomeworkPage4.html">Homework4</a></li>
+                    <li><a href="HomeworkPage5.html">Homework5</a></li>
+                </ul>
+            </div>
+            <h1><a href="HomeworkPage1.html">JS HomeWork </a></h1>
+        </div>
+
+        <div id="contentwrap">
+            <div id="content">
+                <h2>HomeWork5</h2>
+                <div>
+                    <select id="idSelectYear" onchange="check()"></select>
+                    <!-- yearf(this.selectedIndex) -->
+                    <select id="idSelectMonth" onchange="check()"></select>
+                    <select id="idSelectDate" onchange=""></select>
+                    <div id="idsp" style="color: red; font-family: 'ChangaOne'"></div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="footer">
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="http://purecss.io/"><span>Pure</span></a>
+                        </li>
+                        <li>
+                            <a href="https://kuler.adobe.com/zh/create/color-wheel/"><span>kuler</span></a>
+                        </li>
+                        <li>
+                            <a href="http://pixlr.com/editor/"><span>Pixlr</span></a>
+                        </li>
+                        <li>
+                            <a href="HomeworkPage4.html"><span>Homework4</span></a>
+                        </li>
+                        <li>
+                            <a href="HomeworkPage5.html"><span>Homework5</span></a>
+                        </li>
+                    </ul>
+                    <p>
+                        &#169; Copyright &#169; 2014.Mark Kao CECJ0612 all rights reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
